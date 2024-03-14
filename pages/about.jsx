@@ -7,7 +7,7 @@ import PagesMetaHead from '../components/PagesMetaHead';
 function about() {
 	return (
 		<div>
-			<PagesMetaHead title="About Me" />
+			<PagesMetaHead title="Бидний тухай" />
 
 			<motion.div
 				initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ function about() {
 				exit={{ opacity: 0 }}
 				className="container mx-auto"
 			>
-				<AboutMeBio />
+				<AboutMeBio  />
 			</motion.div>
 
 			{/** Counter without paddings */}

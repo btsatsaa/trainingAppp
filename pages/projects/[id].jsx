@@ -13,6 +13,7 @@ function ProjectSingle(props) {
 			<div>
 				<p className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-14 sm:mt-20 mb-7">
 					{props.project.ProjectHeader.title}
+					{/* zaalnii ner */}
 				</p>
 				<div className="flex">
 					<div className="flex items-center mr-10">
@@ -112,24 +113,7 @@ function ProjectSingle(props) {
 						<p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
 							{props.project.ProjectInfo.SocialSharingHeading}
 						</p>
-						{/* <div className="flex items-center gap-3 mt-5">
-							{props.project.ProjectInfo.SocialSharing.map(
-								(social, index) => {
-									<Link
-										key={index}
-										href={social.url}
-										target="__blank"
-										passHref={true}
-										aria-label="Share Project"
-										className="bg-ternary-light dark:bg-ternary-dark text-gray-400 hover:text-primary-dark dark:hover:text-primary-light p-2 rounded-lg shadow-sm duration-500"
-									>
-										<span className="text-lg lg:text-2xl">
-											{social.icon}
-										</span>
-									</Link>;
-								}
-							)}
-						</div> */}
+						
 					</div>
 				</div>
 

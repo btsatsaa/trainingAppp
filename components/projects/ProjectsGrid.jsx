@@ -30,7 +30,7 @@ function ProjectsGrid() {
 		<section className="py-5 sm:py-10 mt-5 sm:mt-10">
 			<div className="text-center">
 				<p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
-					Projects portfolio
+					манай сургалтууд
 				</p>
 			</div>
 
@@ -45,7 +45,7 @@ function ProjectsGrid() {
                         mb-3
                         "
 				>
-					Search projects by title or filter by category
+					ТА хүссэн сургалтаа Хайна уу 
 				</h3>
 				<div
 					className="
@@ -80,7 +80,7 @@ function ProjectsGrid() {
                                 ont-general-medium 
                                 pl-3
                                 pr-1
-                                sm:px-4
+                                sm:px-6
                                 py-2
                                 border 
                             border-gray-200
@@ -97,7 +97,7 @@ function ProjectsGrid() {
 							name="name"
 							type="search"
 							required=""
-							placeholder="Search Projects"
+							placeholder="Сургалтаа хайна уу?"
 							aria-label="Name"
 						/>
 					</div>
@@ -106,7 +106,7 @@ function ProjectsGrid() {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-5">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-6 sm:gap-5">
 				{selectProject
 					? selectProjectsByCategory.map((project, index) => {
 							return <ProjectSingle key={index} {...project} />;

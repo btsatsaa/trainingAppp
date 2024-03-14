@@ -28,7 +28,7 @@ function ProjectsFilter({ setSelectProject }) {
             "
 		>
 			<option value={setSelectProject} className="text-sm sm:text-md">
-				All Projects
+				All Training
 			</option>
 
 			{selectOptions.map((option) => (
