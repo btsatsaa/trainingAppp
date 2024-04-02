@@ -75,17 +75,15 @@ const ImageSlider = () => {
   return (
     <Slider {...settings}>
       <div style={{ position: 'relative' }}>
-        <img src="/test1.jpg" alt="Image 1" style={{ width: '100%' }} />
+        <img src="/training/tra1.jpg" alt="Image 1" style={{ width: '100%' }} />
       </div>
       <div style={{ position: 'relative' }}>
-        <img src="/test1.jpg" alt="Image 2" style={{ width: '100%' }} />
+        <img src="/training/tra2.jpg" alt="Image 2" style={{ width: '100%' }} />
       </div>
       <div style={{ position: 'relative' }}>
-        <img src="/test1.jpg" alt="Image 3" style={{ width: '100%' }} />
+        <img src="/training/tra3.jpg" alt="Image 3" style={{ width: '100%' }} />
       </div>
-      <div style={{ position: 'relative' }}>
-        <img src="/test1.jpg" alt="Image 4" style={{ width: '100%' }} />
-      </div>
+     
     </Slider>
   );
 };

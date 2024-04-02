@@ -34,15 +34,15 @@ module.exports = {
 				// 'ternary-dark': '#1E3851',
 				////////test2//////////
 				// Light colors
-				'primary-light': '#F7F8FC',
+				'primary-light': '#CFD8FC',
 				
 				'secondary-light': '#FFFFFF',
-				'ternary-light': '#f6f7f8',
+				'ternary-light': '#B8C2CB',
 
 				// Dark colors//008080//404040
-				'primary-dark': '#404040',//boljn
-				'secondary-dark': '#1E3851',
-				'ternary-dark': '#606060',
+				'primary-dark': '#202020',//boljn
+				'secondary-dark': '#658AAF',
+				'ternary-dark': '#515C65',
 
 				// Extended v3 color
 				gray: colors.neutral,

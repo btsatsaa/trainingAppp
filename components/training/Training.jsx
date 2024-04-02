@@ -5,6 +5,12 @@ import { useRouter } from 'next/router';
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
 import ImageSlider from '../Swiper/Swiper';
 import { FaArrowLeft } from "react-icons/fa";
+import CommentForm from '../Comment/Comment';
+import State from '../state/State';
+import TraIntro from './traIntroduction';
+import PartiIntro from './partIntro';
+
+
 
 function Training() {
 	const [activeTheme] = useThemeSwitcher();
@@ -29,20 +35,26 @@ function Training() {
           {/* Each image wrapped in a div with the specified column size */}
           <div className='col-span-8'>
         <ImageSlider/>
+            
           </div>
           <div className='col-span-4'>
-         <h1>bvrtgel</h1>
+        
+         <State/>
           </div>
          
         </div>
       </div>
-        <div>Танилцуулга
-            
+        <div className='text-xl font-semibold'>Танилцуулга
+       <TraIntro/>
         </div>
-        <div>Манай сурагч багш нар</div>
-        <div>Сургалтын төлбөр</div>
-        <div>Хуваарь</div>
-        <div>Шаардлагатай зүйл</div>
+        <div className='text-xl font-semibold'>Манай сурагч багш нар
+        <PartiIntro/>
+        </div>
+
+     
+        <div className='text-xl font-semibold'>Хуваарь</div>
+        <div className='text-xl font-semibold'>Шаардлагатай зүйл</div>
+        <CommentForm/>
         </div>
 	);
 }

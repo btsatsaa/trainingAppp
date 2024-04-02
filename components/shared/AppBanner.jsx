@@ -24,7 +24,7 @@ function AppBanner() {
 					}}
 					className="font-general-semibold text-xl lg:text-xl xl:text-2xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
 				>
-					Сайн уу? Манайхыг сонгосннд баярлалаа
+					Сайн уу? Манайхыг сонгоснод баярлалаа
 				</motion.h1>
 				<motion.p
 					initial={{ opacity: 0 }}

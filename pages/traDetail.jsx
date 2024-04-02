@@ -7,6 +7,8 @@ import React, { useState } from "react";
 
 import DateSwiper from "../components/Schedule/DateSwiper";
 import SchedulePicker from "../components/Schedule/SchedulePicker";
+import { GoogleMap } from "@react-google-maps/api";
+import GoogleMaps from "../components/map/GoogleMap";
 
 function traDetail() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,7 +28,9 @@ function traDetail() {
         
       ></motion.div>
        <Training />
-       <div>ahha</div>
+       <div>
+        <GoogleMaps/>
+       </div>
      
     </div>
   );

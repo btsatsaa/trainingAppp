@@ -19,7 +19,7 @@ function duud() {
 	};
 	return (
 		<div className='container mx-auto'>
-			<PagesMetaHead title="test" />
+			<PagesMetaHead title="Test" />
 
 		
             <motion.div
@@ -33,15 +33,8 @@ function duud() {
 				
 				
 			</motion.div>
-			<div>
-		  <h1>Your Next.js App</h1>
-		  <DateSwiper
-			dates={['2024-03-01', '2024-03-02', '2024-03-03','2024-03-01', '2024-03-02', '2024-03-03']} // Replace with your dates
-			onDateSelect={handleDateSelect}
-		  />
-		 
-		</div>
-		<SchedulePicker selectedDate={selectedDate} onDateChange={handleDateSelect} />
+			
+		
 		</div>
 	
 	);

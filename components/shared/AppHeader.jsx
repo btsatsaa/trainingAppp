@@ -66,17 +66,17 @@ function AppHeader() {
           <div>
             <Link href="/">
               {activeTheme === 'dark' ? (
-                <Image
-                  src={logoDark}
-                  className="w-36 cursor-pointer"
-                  alt="Dark Logo"
-                  width={150}
-                  height={120}
-                />
+              <Image
+              src="/trai.png"
+              className="w-36 cursor-pointer border rounded-md"
+              alt="Dark Logo"
+              width={50}
+              height={80}
+          />
               ) : (
                 <Image
-                  src={logoLight}
-                  className="w-36 cursor-pointer"
+                  src="/tra.jpg"
+                  className="w-36 cursor-pointer border rounded-md"
                   alt="Dark Logo"
                   width={150}
                   height={120}
