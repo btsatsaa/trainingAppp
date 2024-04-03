@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import ContactDetails from '../components/contact/ContactDetails';
 import ContactForm from '../components/contact/ContactForm';
 import PagesMetaHead from '../components/PagesMetaHead';
-import Test1 from '../components/test/test1';
+
 function contact() {
 	return (
 		<div>
