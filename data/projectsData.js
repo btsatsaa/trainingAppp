@@ -1022,20 +1022,4 @@
 // ];
 
 //////////////////////
-ProjectImages: [
-	{
-		id: uuidv4(),
-		title: 'Google Health Platform',
-		img: '/images/ui-project-1.jpg',
-	},
-	{
-		id: uuidv4(),
-		title: 'Google Health Platform',
-		img: '/images/web-project-2.jpg',
-	},
-	{
-		id: uuidv4(),
-		title: 'Google Health Platform',
-		img: '/images/mobile-project-2.jpg',
-	},
-],
+
