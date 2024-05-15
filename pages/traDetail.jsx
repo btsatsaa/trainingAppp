@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Training from "../components/training/Training";
 import GoogleMaps from "../components/map/GoogleMap";
 import PagesMetaHead from "../components/PagesMetaHead";
+import { MapProvider } from "../components/map/providers/map-providers";
 
 function TraDetail() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,7 +27,10 @@ function TraDetail() {
       
       <Training />
       <div>
-        <GoogleMaps />
+        {/* <GoogleMaps /> */}
+        <MapProvider>
+          <GoogleMaps/>
+        </MapProvider>
       </div>
     </div>
   );

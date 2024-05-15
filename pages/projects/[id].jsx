@@ -3,11 +3,12 @@ import { FiClock, FiTag } from 'react-icons/fi';
 import PagesMetaHead from '../../components/PagesMetaHead';
 import { projectsData } from '../../data/projectsData';
 import RelatedProjects from '../../components/projects/RelatedProjects';
-
+import lesson from '../api/trainingData'
 function ProjectSingle(props) {
 	return (
 		<div className="container mx-auto">
 			<PagesMetaHead title={props.project.title} />
+		
 
 			{/* Header */}
 			<div>

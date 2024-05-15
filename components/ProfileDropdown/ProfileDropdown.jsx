@@ -6,34 +6,47 @@ import { IoHeartHalf } from "react-icons/io5";
 import { FaComment } from "react-icons/fa";
 import { useRouter } from 'next/router';
 
-
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ users_phone }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const router = useRouter();
+let phone=localStorage.getItem("phone");
   const handleToggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-  const router = useRouter();
 
   const handleLogout = () => {
-    // Add your logout logic here
-    alert('ta bvrtgelees garlaa')
-    router.push('/'); 
-    console.log("Logout clicked");
-    // Close the dropdown after logout if needed
+    alert('Та гарлаа');
+    setIsLoggedIn(false);
     setIsDropdownOpen(false);
+    setUserData(null);
+    localStorage.setItem("Login","false")
+    router.reload()
   };
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleLogin = (usersData) => {
+    setIsLoggedIn(true);
+    setUserData(usersData);
+  };
+
   return (
     <div className="relative inline-block">
       <div className="flex items-center">
-        <Link href="/" className="flex text-gray-700 hover:bg-indigo-100 dark:text-gray-200 dark:hover:bg-gray-700 pr-2">
-          <MdOutlineAccountCircle className="text-4xl dark:text-gray-200 dark:hover:bg-gray-700" />
-        </Link>
+   
+      <MdOutlineAccountCircle className="text-4xl dark:text-gray-200 dark:hover:bg-gray-700" />
+     
+  <span>{phone} </span>
+   
+  
+   
+  
+
+
         {isDropdownOpen ? (
           <IoMdArrowDropup
             onClick={handleDropdownToggle}

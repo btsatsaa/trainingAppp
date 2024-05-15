@@ -5,34 +5,27 @@ import {
 	FiGlobe,
 	FiYoutube,
 } from 'react-icons/fi';
+import { FaFacebook } from "react-icons/fa";
 import AppFooterCopyright from './AppFooterCopyright';
-
+import { FaInstagram } from "react-icons/fa";
 const socialLinks = [
 	{
 		id: 1,
-		icon: <FiGlobe />,
-		url: 'https://www.stoman.me/',
+		icon: <FaInstagram />,
+		url: 'https://www.instagram.com/',
 	},
 	{
 		id: 2,
 		icon: <FiGithub />,
-		url: 'https://github.com/realstoman',
+		url: 'https://github.com/btsatsaa/Diplom1',
 	},
 	{
 		id: 3,
-		icon: <FiTwitter />,
-		url: 'https://twitter.com/realstoman',
+		icon: <FaFacebook />,
+		url: 'https://www.facebook.com/baterdene.narantsatsralt',
 	},
-	{
-		id: 4,
-		icon: <FiLinkedin />,
-		url: 'https://www.linkedin.com/in/realstoman',
-	},
-	{
-		id: 5,
-		icon: <FiYoutube />,
-		url: 'https://www.youtube.com/c/realstoman',
-	},
+	
+	
 ];
 
 function AppFooter() {

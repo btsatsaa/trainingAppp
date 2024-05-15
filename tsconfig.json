@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/map/GoogleMap.jsx", "components/map/providers/map-providers.jsx"  ],
   "exclude": [
     "node_modules"
   ]

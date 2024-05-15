@@ -30,7 +30,7 @@ function ProjectsFilter({ setSelectedCategory, setSelectedDistrict }) {
   };
 
   return (
-    <div className="gap-1 flex">
+    <div className="gap-3 flex">
       <select
         onChange={handleCategoryChange}
         className="

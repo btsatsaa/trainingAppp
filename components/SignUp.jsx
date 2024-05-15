@@ -1,8 +1,7 @@
-// Import necessary modules
 import { useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 
-const SignupModal = ({ onClose }) => {
+const SignupModal = ({ onClose, isLogged }) => {
   const [users_name, setName] = useState('');
   const [users_phone, setPhone] = useState('');
   const [users_email, setEmail] = useState('');
@@ -45,12 +44,13 @@ const SignupModal = ({ onClose }) => {
     <div className="modal fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md shadow-md bg-secondary-light dark:bg-secondary-dark">
       <div className="flex justify-between">
         <h2 className="text-2xl font-bold mb-4">Бүртгүүлэх</h2>
-        <button className="text-gray-500" onClick={onClose}>
+        {/* Хэрэглэгч нэвтрээгүй бол close button-д дарах үед isLogged функц ажиллахгүй байх ёстой */}
+        <button className="text-gray-500" onClick={() => isLogged ? null : onClose()}>
           <IoCloseOutline className="text-4xl" />
         </button>
       </div>
 
-      {/* Name field */}
+      {/* Бусад талбарууд */}
       <div className="mb-4">
         <label
           htmlFor="name"
@@ -151,6 +151,7 @@ const SignupModal = ({ onClose }) => {
       {/* Close button */}
       <button className="text-gray-500" onClick={onClose}></button>
     </div>
+
   );
 };
 

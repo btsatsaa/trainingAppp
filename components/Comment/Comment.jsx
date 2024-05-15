@@ -60,6 +60,7 @@ const CommentForm = () => {
                 alt="User profile"
                 className="w-10 h-10 rounded-full mr-2"
               />
+              
               <span className="font-semibold">{item.author}:</span> {item.comment}
               <div className="ml-auto flex">
                 <button onClick={() => handleLike(index)} className="text-gray-500 hover:text-blue-500 focus:outline-none">

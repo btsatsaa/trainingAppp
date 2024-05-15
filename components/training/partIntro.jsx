@@ -48,7 +48,7 @@ const TeachersSlider = () => {
   };
 
   return (
-    <div className="py-10 sm:py-24 bg-paleblue bg-gray-300 dark:bg-secondary-dark " id="mentor">
+    <div className="py-5 sm:py-16 bg-paleblue bg-gray-300 dark:bg-secondary-dark " id="mentor">
       <div className="mx-auto max-w-7xl sm:py-4 px-4 lg:px-8 relative ">
         <h2 className="text-midnightblue text-4xl md:text-5xl text-center md:text-start font-semibold">
           Манай сургалтын <br /> багш нар.

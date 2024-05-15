@@ -1,37 +1,90 @@
-import React from "react";
-import { GoogleMap, LoadScript, Marker, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker } from '@react-google-maps/api';
+import { useState, useEffect } from 'react';
 
-const containerStyle = {
-  width: "100%",
-  height: "600px",
+const defaultMapContainerStyle = {
+    width: '100%',
+    height: '100vh',
+    borderRadius: '15px 0px 0px 15px',
 };
 
-const center = {
-  lat: 46.8625,
-  lng: 103.8467,
+const defaultMapZoom = 18;
+
+const defaultMapOptions = {
+    zoomControl: true,
+    tilt: 0,
+    gestureHandling: 'auto',
+    mapTypeId: 'roadmap',
 };
 
-const markers = [
-  { id: 1, position: { lat: 46.8625, lng: 103.8467 } },
-  { id: 2, position: { lat: 46.85, lng: 103.85 } },
-  // Add more marker objects as needed
-];
+const MapComponent = () => {
+    const lats = [0, 47.92537595122, 47.914946417816786];
+    const lets = [0, 106.9716112028, 106.99577717068445];
+    const namesa = ["adjas", "hasdhj","asdjkas"]; // Fixed array name
+    const [mapCenter, setMapCenter] = useState({
+        lat: 35.8799866,
+        lng: 76.5048004,
+    });
+    const [nearTarget, setNearTarget] = useState(false);
 
-const GoogleMaps = () => {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDEWd2Ms7g24w4n47TSIclfY8e26LNlDzk",
-  });
+    useEffect(() => {
+        const requestGeolocation = () => {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(({ coords }) => {
+                    const { latitude, longitude } = coords;
+                    setMapCenter({ lat: latitude, lng: longitude });
 
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading Maps";
+                    const id = parseInt(localStorage.getItem("id"));
+                    if (!isNaN(id) && id >= 0 && id < lats.length && id < lets.length) {
+                        const distance = getDistance(
+                            latitude,
+                            longitude,
+                            lats[id],
+                            lets[id]
+                        );
+                        setNearTarget(distance < 500000);
+                    }
+                });
+            }
+        };
+        requestGeolocation();
+    }, []);
 
-  return (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-      {markers.map((marker) => (
-        <Marker key={marker.id} position={marker.position} />
-      ))}
-    </GoogleMap>
-  );
+    const getDistance = (lat1, lon1, lat2, lon2) => {
+        const R = 6371; // Radius of the Earth in kilometers
+        const dLat = deg2rad(lat2 - lat1);
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(deg2rad(lat1)) *
+            Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c * 1000; // Convert to meters
+        return distance;
+    };
+
+    const deg2rad = (deg) => {
+        return deg * (Math.PI / 180);
+    };
+
+    return (
+        <div className="w-full">
+            <GoogleMap
+                mapContainerStyle={defaultMapContainerStyle}
+                center={mapCenter}
+                zoom={defaultMapZoom}
+                options={defaultMapOptions}
+            >
+                {nearTarget && (
+                    <Marker position={{ lat: lats[localStorage.getItem("id")], lng: lets[localStorage.getItem("id")] }} label={namesa[localStorage.getItem("id")]} />
+                    
+                )}
+                            <Marker position={mapCenter} label="You are here" />
+
+            </GoogleMap>
+        </div>
+    );
 };
 
-export default GoogleMaps;
+export default MapComponent;

@@ -45,6 +45,16 @@ module.exports = {
 				'ternary-dark': '#515C65',
 
 				// Extended v3 color
+				// Light colors
+				'primary-light': '#FFFFFF',
+				
+				'secondary-light': '#FFFFFF',
+				'ternary-light': '#A9AFB3',
+
+				// Dark colors//008080//404040
+				'primary-dark': '#132735',//boljn
+				'secondary-dark': '#658AAF',
+				'ternary-dark': '#515C65',
 				gray: colors.neutral,
 			},
 			container: {
