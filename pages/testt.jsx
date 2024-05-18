@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const App = () => {
     const [commentsList, setCommentsList] = useState([])
     const [commentType, setCommentType] = useState('Active')
+    const router = useRouter()
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -31,6 +33,9 @@ const App = () => {
 
     const handleShowPending = () => {
         setCommentType('Pending')
+    }
+    const handleShowInsert = () => {
+        router.push('/addUser')
     }
 
     const handleUpdateStatus = async (email, status) => {
@@ -68,6 +73,12 @@ const App = () => {
                     className="bg-yellow-500 text-white px-4 py-2 rounded"
                 >
                     Pending
+                </button>
+                <button
+                    onClick={handleShowInsert}
+                    className="bg-yellow-500 text-white px-4 py-2 rounded"
+                >
+                    AddLesson
                 </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
