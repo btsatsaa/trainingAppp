@@ -14,45 +14,44 @@
 
       onClose()
 
-      // // onClose()
-      // setIsVisible(false)
-      // router.push('/')
     }
     const handleLogin = async () => {
-      try {
-        const response = await fetch("/api/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            users_phone: users_phone,
-            users_password: users_password,
-          }),
-        });
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        users_phone: users_phone,
+        users_password: users_password,
+      }),
+    });
 
-        const result = await response.json();
+    const result = await response.json();
 
-        if (response.ok) {
-          alert("Нэвтрэх амжилттай боллоо!");
-          setLoggedIn(true); // Нэвтрэлтийн төлөвийг шинэчлэх
-          // Утасны дугаарыг хадгалах
-          localStorage.setItem("phoneNumber", users_phone);
-          localStorage.setItem('Login',"true")
-          localStorage.setItem('phone',users_phone)
-          console.log("Нэвтрэсэн хэрэглэгчийн утасны дугаар:", users_phone);
-          router.push("/");
-          onClose(); // Модалыг хаах
-        } else {
-          alert(`Нэвтрэх амжилтгүй. ${result.error}`);
-          setLoggedIn(false); // Нэвтрэлтийн төлөвийг шинэчлэх
-        }
-      } catch (error) {
-        console.error("Нэвтрэхэд алдаа гарлаа:", error);
-        localStorage.setItem('Login',"false")
-        alert("Дотоод серверийн алдаа. Дахин оролдоно уу.");
-      }
-    };
+    if (response.ok) {
+      alert("Нэвтрэх амжилттай боллоо!");
+      setLoggedIn(true); // Нэвтрэлтийн төлөвийг шинэчлэх
+      
+      // Store user information in local storage
+      localStorage.setItem("phoneNumber", users_phone);
+      localStorage.setItem("Login", "true");
+      localStorage.setItem("phone", users_phone);
+      console.log("Нэвтрэсэн хэрэглэгчийн утасны дугаар:", users_phone);
+      
+      router.push("/");
+      onClose(); // Модалыг хаах
+    } else {
+      alert(`Нэвтрэх амжилтгүй. ${result.error}`);
+      setLoggedIn(false); // Нэвтрэлтийн төлөвийг шинэчлэх
+    }
+  } catch (error) {
+    console.error("Нэвтрэхэд алдаа гарлаа:", error);
+    localStorage.setItem("Login", "false");
+    alert("Дотоод серверийн алдаа. Дахин оролдоно уу.");
+  }
+};
     return (
       <div>
 
