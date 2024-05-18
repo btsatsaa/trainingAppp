@@ -30,7 +30,7 @@ function ProjectSingle({
                 <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-ternary-light dark:bg-ternary-dark">
                     {/* <div className="aspect-w-1 aspect-h-1 overflow-hidden">
                         <Image
-                            src="/test1.jpg"
+                            src="/training.jpg"
                             alt="Single Project"
                             layout="responsive"
                             width={100}

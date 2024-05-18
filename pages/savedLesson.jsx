@@ -50,6 +50,9 @@ export default function SavedLesson() {
 
     return (
         <div className="container mx-auto">
+            <h1 className="text-xl font-bold ml-4 text-xl text-primary-dark dark:text-primary-light">
+                Таны хадгалсан сургалтууд
+            </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 sm:gap-5">
                 {commentsList &&
                     commentsList.map((comment, index) => (
@@ -59,7 +62,7 @@ export default function SavedLesson() {
                                 <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-ternary-light dark:bg-ternary-dark">
                                     <div className="aspect-w-1 aspect-h-1 overflow-hidden">
                                         <Image
-                                            src="/test1.jpg"
+                                            src="/training.jpg"
                                             alt="Single Project"
                                             layout="responsive"
                                             width={100}
@@ -67,6 +70,9 @@ export default function SavedLesson() {
                                         />
                                     </div>
 
+                                    <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
+                                        {comment.lesson_course}
+                                    </p>
                                     <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
                                         {comment.lesson_name}
                                     </p>

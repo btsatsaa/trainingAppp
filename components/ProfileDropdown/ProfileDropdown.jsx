@@ -27,7 +27,9 @@ const ProfileDropdown = ({ users_phone }) => {
         setIsDropdownOpen(false)
         setUserData(null)
         localStorage.setItem('Login', 'false')
-        router.reload()
+        localStorage.setItem('Admin', 'false')
+        // router.reload()
+        window.location.href = '/' // Redirects to the root and reloads the page
     }
 
     const handleDropdownToggle = () => {
@@ -79,6 +81,20 @@ const ProfileDropdown = ({ users_phone }) => {
                             Хадгалсан сургалт
                         </Link>
                     </li>
+                    <li className="flex items-center">
+                        <IoHeartHalf className="text-4xl dark:text-gray-200 dark:hover:bg-gray-700" />
+                        <Link
+                            href={
+                                localStorage.getItem('Admin') === 'false'
+                                    ? '/userreq'
+                                    : '/testt'
+                            }
+                            className="block px-4 py-2 text-gray-700 hover:bg-indigo-100 dark:text-gray-200 dark:hover:bg-gray-700"
+                        >
+                            Хүсэлт
+                        </Link>
+                    </li>
+
                     <li className="flex items-center">
                         <FaComment className="text-2xl dark:text-gray-200 dark:hover:bg-gray-700" />
                         <Link

@@ -113,7 +113,7 @@ const MapComponent = () => {
                             <h2 className="text-lg font-bold">
                                 {selectedMarker}
                             </h2>
-                            <p>мэдээлэл</p>
+                            <p>Амжилт хүсье</p>
                         </div>
                     </InfoWindow>
                 )}

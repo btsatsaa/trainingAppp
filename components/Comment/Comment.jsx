@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { FcLike, FcDislike } from 'react-icons/fc'
 import { FaPaperPlane } from 'react-icons/fa'
+import { root } from 'postcss'
 
 const CommentForm = () => {
     const [comment, setComment] = useState('')
     const [commentsList, setCommentsList] = useState([])
 
     useEffect(() => {
-        // Function to fetch comments data from the API
         const fetchComments = async () => {
             try {
-                // Get the id from localStorage
                 const id = localStorage.getItem('id')
-
-                // Fetch comments data from the API with the id
                 const response = await fetch(
                     `http://localhost:3000/api/comment?id=${id}`
                 )
@@ -29,9 +26,9 @@ const CommentForm = () => {
             }
         }
 
-        // Call the fetchComments function when the component mounts
         fetchComments()
     }, [])
+
     const handleChangeComment = (event) => {
         setComment(event.target.value)
     }
@@ -39,7 +36,11 @@ const CommentForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        // Submit the comment to the API
+        if (localStorage.getItem('Login') === 'false') {
+            alert('Please login')
+            return
+        }
+
         const postData = {
             method: 'POST',
             headers: {
@@ -47,12 +48,11 @@ const CommentForm = () => {
             },
             body: JSON.stringify({
                 commenta: comment,
-                useremail: 'Asdasd', // Assuming fixed user email for now
-                lessonname: 'skf', // Assuming fixed lesson name for now
+                useremail: localStorage.getItem('phone'),
+                lessonname: 'skf',
                 id: localStorage.getItem('id'),
             }),
         }
-
         try {
             const res = await fetch(
                 `http://localhost:3000/api/comment`,
@@ -61,7 +61,6 @@ const CommentForm = () => {
             const response = await res.json()
             console.log(response)
 
-            // Add the new comment to the comments list
             setCommentsList([
                 ...commentsList,
                 {
@@ -71,8 +70,6 @@ const CommentForm = () => {
                     unlikes: 0,
                 },
             ])
-
-            // Clear the comment field
             setComment('')
         } catch (error) {
             console.error('Error adding comment:', error)
@@ -86,17 +83,13 @@ const CommentForm = () => {
                 <ul>
                     {commentsList.map((item, index) => (
                         <li key={index} className="mb-2 flex items-center">
-                            {/* Replace with actual user profile image */}
                             <img
                                 src="/profile.jpg"
                                 alt="User profile"
                                 className="w-10 h-10 rounded-full mr-2"
                             />
-                            <span className="font-semibold">
-                                {item.author}:
-                            </span>{' '}
-                            {item.userEmail}
-                            {item.comments}
+                            <span className="font-semibold">{item.author}</span>{' '}
+                            {item.userEmail}:{item.comments}
                             <div className="ml-auto flex">
                                 <button
                                     onClick={() => handleLike(index)}
