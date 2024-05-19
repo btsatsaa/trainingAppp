@@ -18,7 +18,8 @@ function ProjectSingle() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const id = localStorage.getItem('id') // Retrieve id from localStorage
+                const id = localStorage.getItem('id')
+                const name = localStorage.getItem('name') // Retrieve id from localStorage
 
                 const response = await axios.get(`/api/traDetail?id=${id}`)
                 setTraDetails(response.data)

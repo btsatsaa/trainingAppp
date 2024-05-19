@@ -60,25 +60,25 @@ const App = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold mb-4">Comments List</h1>
+            <h1 className="text-2xl font-bold mb-4">Хүсэлтүүд</h1>
             <div className="mb-4">
                 <button
                     onClick={handleShowActive}
                     className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
                 >
-                    Active
+                    Зөвшөөрсөн
                 </button>
                 <button
                     onClick={handleShowPending}
                     className="bg-yellow-500 text-white px-4 py-2 rounded"
                 >
-                    Pending
+                    Хүлээгдэж буй
                 </button>
                 <button
                     onClick={handleShowInsert}
                     className="bg-yellow-500 text-white px-4 py-2 rounded"
                 >
-                    AddLesson
+                    Сургалт нэмэх
                 </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -107,7 +107,7 @@ const App = () => {
                                 }
                                 className="bg-green-500 text-white px-4 py-2 rounded mr-2"
                             >
-                                Accept
+                                Завшөөрөх
                             </button>
                         )}
                         {comment.com_type === 'Active' && (
@@ -120,7 +120,7 @@ const App = () => {
                                 }
                                 className="bg-red-500 text-white px-4 py-2 rounded mr-2"
                             >
-                                Decline
+                                Буцаах
                             </button>
                         )}
                     </div>

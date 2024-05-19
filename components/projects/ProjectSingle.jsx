@@ -9,6 +9,8 @@ function ProjectSingle({
     lesson_price,
     lesson_name,
     lesson_address,
+    image,
+    title,
     img_id,
     img_title,
     img_img,
@@ -28,16 +30,16 @@ function ProjectSingle({
         <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondory-light dark:bg-ternary-dark">
             <Link href="/traDetail" passHref>
                 <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-ternary-light dark:bg-ternary-dark">
-                    {/* <div className="aspect-w-1 aspect-h-1 overflow-hidden">
+                    <div className="aspect-w-1 aspect-h-1 overflow-hidden">
                         <Image
-                            src="/training.jpg"
-                            alt="Single Project"
+                            src={image}
+                            alt={title}
                             layout="responsive"
                             width={100}
                             height={90}
                         />
-                    </div> */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-10 mt-12">
+                    </div>
+                    {/* <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-10 mt-12">
                         <div className="aspect-w-1 aspect-h-1 overflow-hidden">
                             <Image
                                 src={img_img} // Fix to project.img
@@ -49,7 +51,7 @@ function ProjectSingle({
                                 height={90}
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* //////////// */}
                     <div>

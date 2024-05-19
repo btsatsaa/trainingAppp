@@ -14,43 +14,43 @@ export const clientsHeading = 'Бидэнтэй хамтрагч байгуул�
 
 export const clientsData = [
     {
-        id: uuidv4(),
+        id: 1,
         title: 'Voll',
         img: voll,
     },
     {
-        id: uuidv4(),
-        title: 'merit',
-        img: merit,
-    },
-    {
-        id: uuidv4(),
-        title: 'nomun',
-        img: nomun,
-    },
-    {
-        id: uuidv4(),
-        title: 'ch',
-        img: ch,
-    },
-    {
-        id: uuidv4(),
+        id: 2,
         title: 'math',
         img: math,
     },
     {
-        id: uuidv4(),
-        title: 'hos',
-        img: hos,
+        id: 3,
+        title: 'merit',
+        img: merit,
     },
     {
-        id: uuidv4(),
+        id: 4,
+        title: 'nomun',
+        img: nomun,
+    },
+    {
+        id: 5,
+        title: 'ch',
+        img: ch,
+    },
+    {
+        id: 6,
         title: 'ypon',
         img: ypon,
     },
     {
-        id: uuidv4(),
+        id: 7,
         title: 'CANON',
         img: CanonImage,
+    },
+    {
+        id: 8,
+        title: 'hos',
+        img: hos,
     },
 ]

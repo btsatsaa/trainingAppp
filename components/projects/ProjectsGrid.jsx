@@ -2,39 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import ProjectSingle from './ProjectSingle'
 import ProjectsFilter from './ProjectsFilter'
-
-const projectsData = [
-    {
-        id: 1,
-        title: 'Google Health Platform',
-        img: '/images/ui-project-1.jpg',
-    },
-    {
-        id: 2,
-        title: 'Google Health Platform',
-        img: '/images/web-project-2.jpg',
-    },
-    {
-        id: 3,
-        title: 'Google Health Platform',
-        img: '/images/mobile-project-2.jpg',
-    },
-    {
-        id: 4,
-        title: 'Google Health Platform',
-        img: '/images/mobile-project-2.jpg',
-    },
-    {
-        id: 5,
-        title: 'Google Health Platform',
-        img: '/images/mobile-project-2.jpg',
-    },
-    {
-        id: 6,
-        title: 'Google Health Platform',
-        img: '/images/mobile-project-2.jpg',
-    },
-]
+import { clientsData } from '../../data/clientsData'
 
 function ProjectsGrid() {
     const [searchQuery, setSearchQuery] = useState('')
@@ -137,24 +105,25 @@ function ProjectsGrid() {
                     </p>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 sm:gap-5">
-                        {filteredLessons.map((lesson) => (
-                            <ProjectSingle
-                                key={lesson.id}
-                                lesson_id={lesson.id}
-                                {...lesson}
-                                img_id={lesson.id}
-                                img_title={
-                                    projectsData.find(
-                                        (project) => project.id === lesson.id
-                                    )?.title
-                                }
-                                img_img={
-                                    projectsData.find(
-                                        (project) => project.id === lesson.id
-                                    )?.img
-                                }
-                            />
-                        ))}
+                        {filteredLessons.map((lesson, index) => {
+                            const client = clientsData[index]
+                            return (
+                                <ProjectSingle
+                                    key={lesson.lesson_id}
+                                    lesson_id={lesson.lesson_id}
+                                    lesson_name={lesson.lesson_name}
+                                    lesson_price={lesson.lesson_price}
+                                    lesson_course={lesson.lesson_course}
+                                    category={lesson.category}
+                                    lesson_address={lesson.lesson_address}
+                                    lesson_info={lesson.lesson_info}
+                                    title={
+                                        client ? client.title : 'Default Title'
+                                    }
+                                    image={client ? client.img : '/test1.jpg'} // Replace with your actual default image path
+                                />
+                            )
+                        })}
                     </div>
                 )}
             </div>
