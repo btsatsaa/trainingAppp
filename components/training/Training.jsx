@@ -44,7 +44,7 @@ function ProjectSingle() {
                     className="text-gray-500 hover:text-gray-700 cursor-pointer"
                 />
                 <h1 className="text-xl font-bold ml-4 text-xl text-primary-dark dark:text-primary-light">
-                    Сургалтын нэр
+                    Сургалтын төв
                 </h1>
             </div>
 

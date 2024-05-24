@@ -7,13 +7,16 @@ const LoginModal = ({ onClose }) => {
     const [users_password, setPassword] = useState('')
     const [rememberMe, setRememberMe] = useState(false)
     const [isLoggedIn, setLoggedIn] = useState(false)
+    const [message, setMessage] = useState('')
+    const [messageType, setMessageType] = useState('') // 'success' or 'error'
+    const [isVisible, setIsVisible] = useState(true) // Add the isVisible state
     const router = useRouter()
-    const [isVisible, setIsVisible] = useState(true)
-    const close = () => {
-        setLoggedIn(false) // Нэвтрэлтийн төлөвийг шинэчлэх
 
+    const close = () => {
+        setLoggedIn(false)
         onClose()
     }
+
     const handleLogin = async () => {
         try {
             const response = await fetch('/api/login', {
@@ -30,10 +33,10 @@ const LoginModal = ({ onClose }) => {
             const result = await response.json()
 
             if (response.ok) {
-                alert('Нэвтрэх амжилттай боллоо!')
-                setLoggedIn(true) // Нэвтрэлтийн төлөвийг шинэчлэх
+                setMessage('Нэвтрэх амжилттай боллоо!')
+                setMessageType('success')
+                setLoggedIn(true)
 
-                // Store user information in local storage
                 localStorage.setItem('phoneNumber', users_phone)
                 localStorage.setItem('Login', 'true')
                 localStorage.setItem('phone', users_phone)
@@ -44,38 +47,49 @@ const LoginModal = ({ onClose }) => {
                 } else {
                     localStorage.setItem('Admin', 'false')
                     router.push('/')
-
                     console.log(localStorage.getItem('Admin'))
                 }
-                console.log(
-                    'Нэвтрэсэн хэрэглэгчийн утасны дугаар:',
-                    users_phone
-                )
 
-                onClose() // Модалыг хаах
+                setTimeout(() => {
+                    setMessage('')
+                    onClose()
+                }, 1000)
             } else {
-                alert(`Нэвтрэх амжилтгүй. ${result.error}`)
-                setLoggedIn(false) // Нэвтрэлтийн төлөвийг шинэчлэх
+                setMessage(`Нэвтрэх амжилтгүй. ${result.error}`)
+                setMessageType('error')
+                setLoggedIn(false)
             }
         } catch (error) {
             console.error('Нэвтрэхэд алдаа гарлаа:', error)
             localStorage.setItem('Login', 'false')
-            alert('Дотоод серверийн алдаа. Дахин оролдоно уу.')
+            setMessage('Дотоод серверийн алдаа. Дахин оролдоно уу.')
+            setMessageType('error')
         }
     }
+
     return (
         <div>
             {isVisible && (
                 <div className="modal fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-16 rounded-md shadow-md bg-secondary-light dark:bg-secondary-dark">
                     <div className="flex justify-between">
                         <h2 className="text-2xl font-bold mb-4">Нэвтрэх</h2>
-                        {/* Close button */}
                         <button onClick={close}>
                             <IoCloseOutline className="text-gray-500 text-4xl" />
                         </button>
                     </div>
 
-                    {/* Phone field */}
+                    {message && (
+                        <div
+                            className={`mb-4 ${
+                                messageType === 'success'
+                                    ? 'text-green-500'
+                                    : 'text-red-500'
+                            }`}
+                        >
+                            {message}
+                        </div>
+                    )}
+
                     <div className="mb-4 text-primary-dark dark:text-primary-light">
                         <label
                             htmlFor="phone"
@@ -93,7 +107,6 @@ const LoginModal = ({ onClose }) => {
                         />
                     </div>
 
-                    {/* Password field */}
                     <div className="mb-4">
                         <label
                             htmlFor="password"
@@ -111,7 +124,6 @@ const LoginModal = ({ onClose }) => {
                         />
                     </div>
 
-                    {/* Login button */}
                     <div className="flex justify-between">
                         <button
                             className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"

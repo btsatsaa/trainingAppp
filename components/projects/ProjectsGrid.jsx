@@ -67,14 +67,14 @@ function ProjectsGrid() {
     }
 
     return (
-        <section className="py-5 sm:py-5 mt-5 sm:mt-5">
-            <div className="text-center">
+        <section className="py-4 sm:py-4 mt-4 sm:mt-2">
+            <div className="">
                 <p className="font-general-medium text-4xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
                     Манай сургалтууд
                 </p>
             </div>
 
-            <div className="mt-10 sm:mt-16">
+            <div className="mt-10 sm:mt-8">
                 <div className="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3">
                     <ProjectsFilter
                         setSelectedCategory={setSelectedCategory}
@@ -120,7 +120,9 @@ function ProjectsGrid() {
                                     title={
                                         client ? client.title : 'Default Title'
                                     }
-                                    image={client ? client.img : '/test1.jpg'} // Replace with your actual default image path
+                                    image={
+                                        client ? client.img : '/training.jpg'
+                                    } // Replace with your actual default image path
                                 />
                             )
                         })}

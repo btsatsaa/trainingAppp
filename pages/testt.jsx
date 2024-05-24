@@ -70,13 +70,13 @@ const App = () => {
                 </button>
                 <button
                     onClick={handleShowPending}
-                    className="bg-yellow-500 text-white px-4 py-2 rounded"
+                    className="bg-yellow-500 text-white px-4 py-2 rounded  mr-2"
                 >
                     Хүлээгдэж буй
                 </button>
                 <button
                     onClick={handleShowInsert}
-                    className="bg-yellow-500 text-white px-4 py-2 rounded"
+                    className="bg-yellow-500 text-white px-4 py-2 rounded  mr-2"
                 >
                     Сургалт нэмэх
                 </button>
@@ -107,7 +107,7 @@ const App = () => {
                                 }
                                 className="bg-green-500 text-white px-4 py-2 rounded mr-2"
                             >
-                                Завшөөрөх
+                                Зөвшөөрөх
                             </button>
                         )}
                         {comment.com_type === 'Active' && (

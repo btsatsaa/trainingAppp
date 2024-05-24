@@ -46,7 +46,7 @@ module.exports = {
 
                 // Extended v3 color
                 // Light colors
-                'primary-light': '#9A9BCB',
+                'primary-light': '#A3ACAC',
 
                 'secondary-light': '#FFFFFF',
                 'ternary-light': '#A9AFB3',

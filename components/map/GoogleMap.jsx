@@ -19,7 +19,7 @@ const defaultMapOptions = {
 const MapComponent = () => {
     const lats = [0, 47.92537595122, 47.914946417816786, 47.92382000400115]
     const lets = [0, 106.9716112028, 106.99577717068445, 106.93412168867263]
-    const namesa = ['Сагс', 'Бокс', 'Иог', 'Бөх'] // Fixed array name
+    const namesa = ['voll', 'merit', 'Nomun', 'Чех'] // Fixed array name
     const [mapCenter, setMapCenter] = useState({
         lat: 35.8799866,
         lng: 76.5048004,
@@ -47,7 +47,7 @@ const MapComponent = () => {
                             lats[id],
                             lets[id]
                         )
-                        setNearTarget(distance < 5000)
+                        setNearTarget(distance < 50000)
                     }
                 })
             }

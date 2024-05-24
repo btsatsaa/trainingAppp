@@ -62,20 +62,8 @@ function ContactForm() {
                     className="m-4 p-6 sm:p-10 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left"
                 >
                     <p className="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">
-                        Түнш болох хүсэл илгээх
+                        Сургалт нэмэх
                     </p>
-
-                    {showSuccessMessage && (
-                        <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-                            Амжилттай илгээлээ!
-                        </div>
-                    )}
-
-                    {errorMessage && (
-                        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                            {errorMessage}
-                        </div>
-                    )}
 
                     <FormInput
                         inputLabel="Байгууллагын нэр"
@@ -107,7 +95,7 @@ function ContactForm() {
                         inputType="text"
                         inputId="course"
                         inputName="course"
-                        placeholderText="Курс"
+                        placeholderText="Курс нэр"
                         ariaLabelName="Course"
                         value={formData.course}
                         onChange={handleChange}
@@ -156,7 +144,7 @@ function ContactForm() {
                                 title={
                                     loading
                                         ? 'Илгээж байна...'
-                                        : 'Хүсэлт илгээх'
+                                        : 'Сургалт нэмэх'
                                 }
                                 type="submit"
                                 aria-label="Send Message"
@@ -164,6 +152,17 @@ function ContactForm() {
                             />
                         </span>
                     </div>
+                    {showSuccessMessage && (
+                        <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                            Амжилттай илгээлээ!
+                        </div>
+                    )}
+
+                    {errorMessage && (
+                        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {errorMessage}
+                        </div>
+                    )}
                 </form>
             </div>
         </div>

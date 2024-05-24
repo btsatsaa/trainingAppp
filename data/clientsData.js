@@ -35,6 +35,26 @@ export const clientsData = [
     },
     {
         id: uuidv4(),
+        title: 'Voll',
+        img: voll,
+    },
+    {
+        id: uuidv4(),
+        title: 'merit',
+        img: merit,
+    },
+    {
+        id: uuidv4(),
+        title: 'nomun',
+        img: nomun,
+    },
+    {
+        id: uuidv4(),
+        title: 'ch',
+        img: ch,
+    },
+    {
+        id: uuidv4(),
         title: 'math',
         img: math,
     },

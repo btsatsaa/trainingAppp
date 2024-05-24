@@ -69,13 +69,14 @@ export default function SavedLesson() {
                                             height={90}
                                         />
                                     </div>
-
-                                    <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
-                                        {comment.lesson_course}
-                                    </p>
-                                    <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
-                                        {comment.lesson_name}
-                                    </p>
+                                    <div className="flex justify-between">
+                                        <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
+                                            {comment.lesson_course}
+                                        </p>
+                                        <p className="text-blue-500 px-4 py-2 text-xl font-semibold text-primary-dark dark:text-primary-light">
+                                            {comment.lesson_name}
+                                        </p>
+                                    </div>
 
                                     <div className="flex justify-between border-2 text-primary-dark dark:text-primary-light rounded-md p-2 px-4">
                                         <p>{comment.lesson_id}</p>
